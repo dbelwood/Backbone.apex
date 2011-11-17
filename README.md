@@ -36,6 +36,7 @@ class Accounts extends Backbone.Collection
 ```
 
 2 notes here.
+
 1. I'm writing my code in CoffeeScript like all the cool kids do (this just compiles down to nicer JavaScript than I care to manually write.)
 2. The 'parse' method in the collection is important as the results returned by the Apex REST web service includes an 'attributes' array in the JSON which collides with the 'attributes' associative array that Backbone.js uses to maintain state.
 

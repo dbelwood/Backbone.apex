@@ -18,8 +18,7 @@ Model:
 
 ```
 class Account extends Backbone.Model
-
-		urlRoot: 'accounts'
+	urlRoot: 'accounts'
 ```
 
 Collection:

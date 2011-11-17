@@ -8,25 +8,29 @@ Currently, this library replaces the standard Backbone.sync function with a sale
 
 ### Step 1
 Include the script in your html source
-	<apex:includeScript value="{!URLFOR($Resource.assets, '/js/backbone.salesforce.js')}"/>
+```<apex:includeScript value="{!URLFOR($Resource.assets, '/js/backbone.salesforce.js')}"/>```
 
 * In this example I'm including it in a Visualforce page.
 
 ###Step 2
 Reference the url root of your Apex Rest Resource in the model/collection definitions:
 Model:
-````class Account extends Backbone.Model
-		urlRoot: 'accounts'````
+```
+class Account extends Backbone.Model
+		urlRoot: 'accounts'
+```
 
 Collection:
-````class Accounts extends Backbone.Collection
+```
+class Accounts extends Backbone.Collection
 		model: Account
 		url: 'accounts'
 		parse: (resp, xhr) ->
 			_.each(resp, (result) ->
 				delete result.attributes
 			, @)
-			resp````
+			resp
+```
 
 2 notes here.
 1. I'm writing my code in CoffeeScript like all the cool kids do (this just compiles down to nicer JavaScript than I care to manually write.)

@@ -8,6 +8,7 @@ Currently, this library replaces the standard Backbone.sync function with a sale
 
 ### Step 1
 Include the script in your html source
+
 ```<apex:includeScript value="{!URLFOR($Resource.assets, '/js/backbone.salesforce.js')}"/>```
 
 * In this example I'm including it in a Visualforce page.
@@ -22,6 +23,7 @@ class Account extends Backbone.Model
 ```
 
 Collection:
+
 ```
 class Accounts extends Backbone.Collection
 		model: Account

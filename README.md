@@ -26,13 +26,13 @@ Collection:
 
 ```
 class Accounts extends Backbone.Collection
-		model: Account
-		url: 'accounts'
-		parse: (resp, xhr) ->
-			_.each(resp, (result) ->
-				delete result.attributes
-			, @)
-			resp
+	model: Account
+	url: 'accounts'
+	parse: (resp, xhr) ->
+		_.each(resp, (result) ->
+			delete result.attributes
+		, @)
+		resp
 ```
 
 2 notes here.

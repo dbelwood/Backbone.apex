@@ -15,8 +15,10 @@ Include the script in your html source
 ###Step 2
 Reference the url root of your Apex Rest Resource in the model/collection definitions:
 Model:
+
 ```
 class Account extends Backbone.Model
+
 		urlRoot: 'accounts'
 ```
 

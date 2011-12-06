@@ -1,5 +1,13 @@
 (function() {
   var API_VERSION, AUTH_HEADER, getUrl, methodMap, urlError;
+  var __hasProp = Object.prototype.hasOwnProperty, __extends = function(child, parent) {
+    for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }
+    function ctor() { this.constructor = child; }
+    ctor.prototype = parent.prototype;
+    child.prototype = new ctor;
+    child.__super__ = parent.prototype;
+    return child;
+  };
   API_VERSION = '23.0';
   AUTH_HEADER = "Authorization";
   methodMap = {
@@ -13,6 +21,24 @@
     service: 'apexrest',
     sessionId: null
   };
+  Backbone.Salesforce.Model = (function() {
+    __extends(Model, Backbone.Model);
+    function Model() {
+      Model.__super__.constructor.apply(this, arguments);
+    }
+    return Model;
+  })();
+  Backbone.Salesforce.Collection = (function() {
+    __extends(Collection, Backbone.Collection);
+    function Collection() {
+      Collection.__super__.constructor.apply(this, arguments);
+    }
+    Collection.prototype.parse = function(resp, xhr) {
+      _.each(resp, function(result) {}, delete result.attributes, this);
+      return resp;
+    };
+    return Collection;
+  })();
   Backbone.sync = function(method, model, options) {
     var elements, instance, instanceUrl, params, proxyUrl, url;
     if (options.url) {
